@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs -->
+  <meta charset="utf-8">
+  <title>DyND Multi-Dimensional Array Library</title>
+  <meta name="description" content="">
+  <meta name="author" content="DyND Developers">
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../theme/css/normalize.css">
+  <link rel="stylesheet" href="../theme/css/skeleton.css">
+  <link rel="stylesheet" href="../theme/css/custom.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="logo300px">
+	  <img src="../images/dynd_logo_300px.png"></img>
+	</div>
+	
+	<nav class="nav">
+      <ul>
+        <li><a href="..">Home</a></li>
+        <li><a href="../introduction">Introduction</a></li>
+        <li><a href="https://github.com/libdynd/libdynd">Development</a></li>
+      </ul>
+	</nav>
+  </div>
+
+  <!-- Primary Page Layout -->
+
+<div class="container">
+	<section id="content">
+		<header align="center"><h1>Introduction to DyND</h1></header>
+		<div class="eleven columns">
+		<p>DyND is C++ library for dynamic, multidimensional arrays, aiming to
+target C++, Python, and eventually other languages in a first class
+manner. DyND aspires to become multi-language dynamic array infrastructure
+upon which array-oriented systems are built, like NumPy has for Python.</p>
+<h2>Types</h2>
+<p>The dynamic type system forms the foundation of DyND, describing how
+data is laid out in memory and how functions transform that data.
+Some primitive value types are "int32", "float64", and "string".
+Array types have their dimensions prepended like "16 * int32" and
+"3 * var * float32". These types can be composed into tuples
+"(int32, float64, bool)" or structs
+"{present: bool, value: int32, name: string}".</p>
+<p>Types can also be patterns, which don't represent a particular data layout,
+but rather match against sets of types which fit into the pattern.
+For example "Dim * T" is an arbitrary one-dimensional array. This is
+how parameters of DyND's callables objects are typically specified.</p>
+<h2>Arrays</h2>
+<p>Data in DyND is stored in the <code>nd::array</code> object, which combines a
+type, some array layout metadata, and a block of memory for the data.
+Atomically reference-counted smart pointers are used to manage the
+memory blocks, allowing for the view operations on data familiar
+to NumPy users.</p>
+<h2>Computation</h2>
+<p>Computations in DyND are represented as <code>callable</code> objects, which
+encapsulate how data transforms from one data layout to another
+in an array-oriented fashion. Callables are composable, for example
+a callable operating on scalars can be lifted to a callable which
+operates elementwise, using standard broadcasting rules for combining
+dimensions.</p>
+		</div>
+	</section>
+</div>
+
+
+<!-- End Document -->
+</body>
+</html>
